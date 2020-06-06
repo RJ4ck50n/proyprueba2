@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "313507994930",
+    "firebase_url": "https://comparaprecios-127ed.firebaseio.com",
+    "project_id": "comparaprecios-127ed",
+    "storage_bucket": "comparaprecios-127ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313507994930:android:26274f3a0a3f6d9348cb2b",
+        "android_client_info": {
+          "package_name": "com.example.proyprueba2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313507994930-v2t4ak57ud5mu82pvphe6nbtuqm40r5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoRvzBAhAw21T_0Ijnt88QNkWVm2yoC6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313507994930-v2t4ak57ud5mu82pvphe6nbtuqm40r5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
