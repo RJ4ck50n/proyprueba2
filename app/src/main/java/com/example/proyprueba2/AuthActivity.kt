@@ -7,9 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
 
-private lateinit var auth: AuthActivity
 
 class AuthActivity : AppCompatActivity() {
+
+    /*
+    private val MY_REQUEST_CODE: Int = 2313
+
+    // lateinit var provider: List<AuthUI.IdpConfig>*/
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         // Splash Screen
@@ -19,8 +25,9 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
+        // Setup
+        setup()
     }
-
 
 
     private fun setup() {
@@ -39,7 +46,7 @@ class AuthActivity : AppCompatActivity() {
                         passwordEditText.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            showHome(it.result?.user?.email?:"", ProviderType.BASIC)
+                            showHome(it.result?.user?.email?: "", ProviderType.BASIC)
                         } else {
                             showAlert()
                         }
@@ -52,7 +59,7 @@ class AuthActivity : AppCompatActivity() {
 
         logInButton.setOnClickListener {
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()) {
-                // Usando el servicio de FBase .... y agregar el Listener para que se notifique que ha ingresado emsil&pass correctamente.
+                // Usando el servicio de FBase .... y agregar el Listener para que se notifique que ha ingresado emsil&pass correctamente
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(
                         emailEditText.text.toString(),
@@ -83,19 +90,18 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    private fun showHome(email: String, provider: ProviderType) {
+    private fun showHome(email:String, provider:ProviderType) {
         // Mostrar y ajustar la nueva pantalla
         val homeIntent = Intent(this, HomeActivity::class.java)
             .apply {
                 // Le pasamos(como parámetro) el email y el proveedor
                 putExtra("email", email)
-                putExtra("provider", provider.name)
+                putExtra("proveedor", provider.name)
             }
 
         //Navegar a la nueva pantalla
         startActivity(homeIntent)
+
     }
-
-
 
 }
