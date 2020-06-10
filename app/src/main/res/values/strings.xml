@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Compara YA</string>
     <string name="email">Email</string>
+
     <style name="prefs_file">com.example.proyprueba2.PREFERENCE_FILE_KEY</style>
 
 </resources>
