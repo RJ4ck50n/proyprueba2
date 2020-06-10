@@ -1,5 +1,6 @@
 package com.example.proyprueba2
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
@@ -7,7 +8,8 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 enum class ProviderType{
     // Autenticación básica: email y contraseña
-    BASIC
+    BASIC,
+    GOOGLE
 }
 
 class HomeActivity : AppCompatActivity() {
@@ -20,6 +22,13 @@ class HomeActivity : AppCompatActivity() {
         val email=bundle?.getString("email")
         val provider =bundle?.getString("provider")
         setup(email?:"",provider?:"")
+
+        // Guardar el Proveedor y el usuario autenticado
+        val prefs = getSharedPreferences(getString(R.Strings.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email",email)
+        prefs.putString("provider",provider)
+        prefs.apply()
+
     }
 
     private fun setup(email:String, provider:String){
