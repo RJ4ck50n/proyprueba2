@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
         <Space
@@ -66,6 +66,23 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimaryDark"
                 android:text="Acceder" />
+
         </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/googleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:drawableStart="@mipmap/google_icon_64"
+            android:paddingLeft="16dp"
+            android:text="Google"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
