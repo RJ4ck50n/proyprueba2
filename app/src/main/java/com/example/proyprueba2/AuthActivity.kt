@@ -1,8 +1,10 @@
 package com.example.proyprueba2
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
@@ -10,23 +12,36 @@ import kotlinx.android.synthetic.main.activity_auth.*
 
 class AuthActivity : AppCompatActivity() {
 
-    /*
-    private val MY_REQUEST_CODE: Int = 2313
-
-    // lateinit var provider: List<AuthUI.IdpConfig>*/
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         // Splash Screen
-        Thread.sleep(2000)
-        setTheme(R.style.AppTheme)
-
+        Thread.sleep(4000)
+        setTheme(R.style.AppTheme) // Usar el tema
+        // Por Defecto
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
         // Setup
         setup()
+
+        session()
+    }
+
+    override fun onStart(){
+        super.onStart()
+
+        authLayout.visibility = View.VISIBLE
+    }
+
+
+    private fun session(){
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email",null)
+        val provider = prefs.getString("provider", null)
+
+        if(email != null && provider !=null){
+            authLayout.visibility = View.INVISIBLE
+           showHome(email, ProviderType.valueOf(provider))
+        }
     }
 
 
@@ -103,5 +118,7 @@ class AuthActivity : AppCompatActivity() {
         startActivity(homeIntent)
 
     }
+
+
 
 }

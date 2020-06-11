@@ -7,7 +7,5 @@ class PantallasupermercadosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantallasupermercados)
-
-
     }
 }
