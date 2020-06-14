@@ -1,150 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PantallasupermercadosActivity">
-
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="601dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints">
-
+    tools:context=".PantallasupermercadosActivity"
+    android:stretchColumns="*">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="match_parent"
-            android:layout_height="103dp"
+            android:id="@+id/imageView6"
+            android:layout_width="0sp"
+            android:layout_height="120sp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/supermercadosperuanos" />
 
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/alfa_slab_one"
             android:gravity="center"
-            android:text="ELEGIR LOS SUPERMERCADOS PARA COMPARAR"
+            android:text="@string/textoelige"
             android:textAlignment="center"
-            android:textColor="#1E3897"
-            android:textSize="25dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="0sp"
+            android:layout_height="120sp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/logometro1" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageView23"
-                        android:layout_width="205dp"
-                        android:layout_height="150dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/logofinaltotus" />
-
-                    <ImageView
-                        android:id="@+id/imageView24"
-                        android:layout_width="205dp"
-                        android:layout_height="150dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/logowong" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/checkBoxtottus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center"
-                        android:translationX="85sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxwong"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:translationX="85sp" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/imageView26"
-                        android:layout_width="205dp"
-                        android:layout_height="150dp"
-                        app:srcCompat="@drawable/logofinalmetro" />
-
-                    <ImageView
-                        android:id="@+id/imageView27"
-                        android:layout_width="205dp"
-                        android:layout_height="150dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/logofinalplaza" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/checkmetro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center"
-                        android:translationX="85sp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxplaza"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:translationX="85sp" />
-                </LinearLayout>
-            </TableRow>
-        </TableLayout>
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="0sp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logowong"
+            android:contentDescription="@string/app_name"
+            />
 
 
-    </LinearLayout>
+    </TableRow>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:contentDescription="@string/app_name"
+            android:layout_width="0sp"
+            android:layout_height="120sp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logofinalplaza" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:contentDescription="@string/app_name"
+            android:layout_width="0sp"
+            android:layout_height="120sp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logofinaltotus" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <CheckBox
+            android:id="@+id/checkBox6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <CheckBox
+            android:id="@+id/checkBox7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="10sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/btnsig" />
+    </TableRow>
+
+
+</TableLayout>
 

@@ -2,6 +2,8 @@
     <string name="app_name">Compara YA</string>
     <string name="email">Email</string>
     <string name="prefs_file">string</string>
+    <string name="textoelige">ELIGE 2 SUPERMERCADOS PARA COMPARAR</string>
+    <string name="btnsig">Siguiente</string>
     <style name="prefs_file">com.example.proyprueba2.PREFERENCE_FILE_KEY</style>
 
 </resources>
