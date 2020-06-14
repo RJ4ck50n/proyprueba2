@@ -32,11 +32,9 @@ class HomeActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
-
     }
 
     private fun setup(email: String, provider: String) {
-        //
         title = "Inicio"
         // Agregamos los valores a los id de los layouts
         emailTextView.text = email
@@ -46,7 +44,8 @@ class HomeActivity : AppCompatActivity() {
         logOutButton.setOnClickListener {
 
             // Borrado de datos
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            val prefs =
+                getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
 

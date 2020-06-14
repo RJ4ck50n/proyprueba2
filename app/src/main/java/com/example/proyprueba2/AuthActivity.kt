@@ -6,15 +6,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_auth.*
 
 
 class AuthActivity : AppCompatActivity() {
 
+    private val GOOGLE_SIGN_IN = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // Splash Screen
-        Thread.sleep(4000)
+        Thread.sleep(2000)
         setTheme(R.style.AppTheme) // Usar el tema
         // Por Defecto
         super.onCreate(savedInstanceState)
@@ -22,25 +28,24 @@ class AuthActivity : AppCompatActivity() {
 
         // Setup
         setup()
-
         session()
     }
 
-    override fun onStart(){
+    override fun onStart() {
         super.onStart()
 
         authLayout.visibility = View.VISIBLE
     }
 
 
-    private fun session(){
+    private fun session() {
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-        val email = prefs.getString("email",null)
+        val email = prefs.getString("email", null)
         val provider = prefs.getString("provider", null)
 
-        if(email != null && provider !=null){
+        if (email != null && provider != null) {
             authLayout.visibility = View.INVISIBLE
-           showHome(email, ProviderType.valueOf(provider))
+            showHome(email, ProviderType.valueOf(provider))
         }
     }
 
@@ -61,7 +66,7 @@ class AuthActivity : AppCompatActivity() {
                         passwordEditText.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            showHome(it.result?.user?.email?: "", ProviderType.BASIC)
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
                         } else {
                             showAlert()
                         }
@@ -76,10 +81,8 @@ class AuthActivity : AppCompatActivity() {
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()) {
                 // Usando el servicio de FBase .... y agregar el Listener para que se notifique que ha ingresado emsil&pass correctamente
                 FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(
-                        emailEditText.text.toString(),
-                        passwordEditText.text.toString()
-                    ).addOnCompleteListener {
+                    .signInWithEmailAndPassword(emailEditText.text.toString(),
+                        passwordEditText.text.toString()).addOnCompleteListener {
 
                         if (it.isSuccessful) {
                             showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
@@ -88,6 +91,20 @@ class AuthActivity : AppCompatActivity() {
                         }
                     }
             }
+        }
+
+
+        googleButton.setOnClickListener {
+            //Configuración
+            val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+
+            val googleClient = GoogleSignIn.getClient(this, googleConf)
+            googleClient.signOut()
+
+            startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
 
     }
@@ -105,20 +122,40 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    private fun showHome(email:String, provider:ProviderType) {
+    private fun showHome(email: String, provider: ProviderType) {
         // Mostrar y ajustar la nueva pantalla
-        val homeIntent = Intent(this, HomeActivity::class.java)
-            .apply {
-                // Le pasamos(como parámetro) el email y el proveedor
+        val homeIntent = Intent(this, HomeActivity::class.java).apply {
                 putExtra("email", email)
                 putExtra("proveedor", provider.name)
             }
-
         //Navegar a la nueva pantalla
         startActivity(homeIntent)
-
     }
 
+    // LOGIN CON GOOGLE
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode==GOOGLE_SIGN_IN){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+
+                if (account!=null){
+                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                    FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
+                        if (it.isSuccessful){
+                            showHome(account.email?:"", ProviderType.GOOGLE)
+                        }else{
+                            showAlert()
+                        }
+                    }
+                }
+            }catch (e:ApiException){
+                showAlert()
+            }
+
+        }
+    }
 
 
 }
