@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="¡BIENVENIDO! \n Estás a un clic de \n empezar a comparar..."
+        android:text="Estás a un clic de \n empezar a comparar..."
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/colorPrimary"/>
 
         <Space
             android:layout_width="match_parent"
@@ -63,7 +64,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:backgroundTint="@color/colorPrimary"/>
 
         <Space
             android:layout_width="match_parent"
@@ -105,7 +107,9 @@
         android:background="@drawable/button_white"
         android:drawableStart="@mipmap/google_icon_64"
         android:gravity="center|center_horizontal|center_vertical"
-        android:padding="10dp"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text=" Google"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -119,7 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="...con los mejores productos \n de primera necesidad."
+        android:text="...con las mejores opciones de \n productos de primera necesidad."
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"

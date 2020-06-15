@@ -1,6 +1,7 @@
 package com.example.proyprueba2
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -52,6 +53,10 @@ class HomeActivity : AppCompatActivity() {
             // Llamar a FBase
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
+        }
+
+        comunicadosButton.setOnClickListener {
+            startActivity(Intent(this, PantallaComunicados::class.java))
         }
     }
 }

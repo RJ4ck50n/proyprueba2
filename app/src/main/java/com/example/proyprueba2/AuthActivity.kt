@@ -52,7 +52,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun setup() {
 
-        title = "Autenticación"
+        title = "¡Bienvenid@!"
 
         // Lógica al botón "Registro"
 
