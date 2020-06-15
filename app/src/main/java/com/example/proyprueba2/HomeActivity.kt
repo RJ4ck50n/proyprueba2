@@ -56,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         comunicadosButton.setOnClickListener {
-            startActivity(Intent(this, PantallaComunicados::class.java))
+            startActivity(Intent(this, ComunicadosActivity::class.java))
         }
     }
 }

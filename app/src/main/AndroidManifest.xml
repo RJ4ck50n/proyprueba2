@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".SupermercadosActivity"></activity>
         <!-- Pantalla de autenticación y SplashScreen -->
         <activity
             android:name=".AuthActivity"
@@ -21,8 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".PantallaComunicados" />
+        <activity android:name=".ComunicadosActivity" />
         <activity android:name=".HomeActivity" />
 
         <meta-data
