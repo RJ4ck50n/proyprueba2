@@ -30,9 +30,9 @@ class HomeActivity : AppCompatActivity() {
         val prefs =
             getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
         // Guardar una cadena de texto
-        prefs.putString("email", email)
-        prefs.putString("provider", provider)
-        prefs.apply()
+            prefs.putString("email", email)
+            prefs.putString("provider", provider)
+            prefs.apply()
     }
 
     private fun setup(email: String, provider: String) {
@@ -47,12 +47,12 @@ class HomeActivity : AppCompatActivity() {
             // Borrado de datos
             val prefs =
                 getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-            prefs.clear()
-            prefs.apply()
+                prefs.clear()
+                prefs.apply()
 
             // Llamar a FBase
-            FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+                FirebaseAuth.getInstance().signOut()
+                onBackPressed()
         }
 
         comunicadosButton.setOnClickListener {

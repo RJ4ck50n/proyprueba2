@@ -31,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Elige 2 SUPERs a comparar"
+                android:paddingTop="24dp"
+                android:text="Elige 2 SUPER's a comparar"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -43,6 +44,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
                 android:orientation="horizontal">
 
                 <ImageButton
