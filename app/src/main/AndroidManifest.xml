@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProductosActivity"></activity>
+        <activity android:name=".ProductsActivity"></activity>
+        <activity android:name=".ProductosActivity" />
         <activity android:name=".SupermercadosActivity" /> <!-- Pantalla de autenticación y SplashScreen -->
         <activity
             android:name=".AuthActivity"

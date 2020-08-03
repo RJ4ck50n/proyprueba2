@@ -4,6 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.proyprueba2.fragment.ComparaFragment
+import com.example.proyprueba2.fragment.InicioFragment
+import com.example.proyprueba2.fragment.MiPerfilFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -14,6 +18,11 @@ enum class ProviderType {
 }
 
 class HomeActivity : AppCompatActivity() {
+
+    private val inicioFragment = InicioFragment()
+    private val comparaFragment = ComparaFragment()
+    private val miPerfilFragment = MiPerfilFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -33,6 +42,27 @@ class HomeActivity : AppCompatActivity() {
             prefs.putString("email", email)
             prefs.putString("provider", provider)
             prefs.apply()
+
+        //--------------- FRAGMENTS ---------------
+        replaceFragment(inicioFragment)
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.ic_inicio -> replaceFragment(inicioFragment)
+                R.id.ic_compara -> replaceFragment(comparaFragment)
+                R.id.ic_miperfil -> replaceFragment(miPerfilFragment)
+            }
+            true
+        }
+
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        if(fragment != null){
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
+        }
     }
 
     private fun setup(email: String, provider: String) {
@@ -55,8 +85,16 @@ class HomeActivity : AppCompatActivity() {
                 onBackPressed()
         }
 
+        /*
+        ------------ Botón que llama a la Activity de Comunicados ------------
+
         comunicadosButton.setOnClickListener {
             startActivity(Intent(this, ComunicadosActivity::class.java))
         }
+
+         */
+
+
+
     }
 }
