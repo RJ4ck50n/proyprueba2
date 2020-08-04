@@ -11,9 +11,6 @@ class ComunicadosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_comunicados)
         title = "Comunicados Oficiales"
 
-        startButton.setOnClickListener {
-            startActivity(Intent(this, SupermercadosActivity::class.java))
-        }
 
     }
 
